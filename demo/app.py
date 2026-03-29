@@ -11,7 +11,7 @@ import torchvision.models as models
 from PIL import Image
 
 # ==========================================
-# 1. ARCHITECTURES (Needed to load the weights)
+# 1. ARCHITECTURES (Needed to load weights)
 # ==========================================
 
 class SEBlock(nn.Module):
@@ -57,9 +57,9 @@ class MultiScaleSpectroBlock(nn.Module):
         return self.pool(self.se(F.leaky_relu(self.bn(out), 0.01)))
 
 
-class CreativeSpectroCNN(nn.Module):
+class SpectroCNN(nn.Module):
     def __init__(self, num_classes=10):
-        super(CreativeSpectroCNN, self).__init__()
+        super(SpectroCNN, self).__init__()
         self.init_conv = nn.Sequential(
             nn.Conv2d(1, 32, kernel_size=5, stride=2, padding=2),
             nn.BatchNorm2d(32),
@@ -112,7 +112,7 @@ class SpectroResNet50(nn.Module):
 
 device = torch.device("cpu")
 
-demo_cnn = CreativeSpectroCNN(num_classes=10).to(device)
+demo_cnn = SpectroCNN(num_classes=10).to(device)
 demo_cnn.load_state_dict(
     torch.load('best_spectro_cnn.pth', map_location=device)
 )
@@ -130,7 +130,7 @@ genres = [
 ]
 
 # ==========================================
-# 3. PREDICTION LOGIC (LIBROSA + 30s CHUNKING)
+# 3. PREDICTION LOGIC (30s CHUNKING)
 # ==========================================
 
 def predict_and_visualize(audio_path):
@@ -161,7 +161,6 @@ def predict_and_visualize(audio_path):
     
     fig, ax = plt.subplots(figsize=(10, 4)) 
     
-    # Switched to 'inferno' colormap for a fiery/neon look to match dark theme!
     ax.imshow(
         mel_spec_full.squeeze().numpy(), 
         cmap='inferno', 
@@ -182,7 +181,7 @@ def predict_and_visualize(audio_path):
     cnn_probs = []
     resnet_probs = []
     
-    frames_per_chunk = 130  # This is EXACTLY 3 seconds!
+    frames_per_chunk = 130  # This is exactly 3 seconds
     
     for i in range(10):  # 10 chunks * 3 seconds = 30 seconds total
         start_frame = i * frames_per_chunk
@@ -214,10 +213,9 @@ def predict_and_visualize(audio_path):
     return spectro_img, confidences
 
 # ==========================================
-# 4. CUSTOM GRADIO UI (THE MUSIC THEME)
+# 4. CUSTOM GRADIO UI
 # ==========================================
 
-# Creating a custom sleek Dark Mode theme
 music_theme = gr.themes.Default(
     primary_hue="fuchsia",     # Neon pinkish-purple accents
     secondary_hue="cyan",      # Bright blue highlights
