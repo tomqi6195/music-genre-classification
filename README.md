@@ -28,8 +28,8 @@ To capture the complex nature of music, this project utilizes a dual-expert ense
 | :--- | :--- | :--- | :--- | :--- |
 | Baseline SVM | 0.71 | 0.70 | 0.70 | None |
 | SpectroCNN | 0.83 | 0.81 | 0.82 | Blues, Classical, Metal |
-| ResNet-50 (Transfer Learning) | 0.83 | 0.82 | 0.83 | Disco, Hiphop, Jazz, Metal |
-| **Soft-Voting Ensemble** | **0.86** | **0.84** | **0.85** | **Highly balanced across all classes (except Rock)** |
+| ResNet-50 | 0.83 | 0.82 | 0.83 | Disco, Hiphop, Jazz, Metal |
+| **Soft-Voting Ensemble** | **0.86** | **0.84** | **0.85** | **Highly balanced across classes (except Rock)** |
 
 ---
 
