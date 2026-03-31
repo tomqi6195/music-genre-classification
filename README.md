@@ -47,7 +47,12 @@ This project uses librosa to safely decode MP3/WAV files without requiring syste
 pip install torch torchvision torchaudio librosa gradio matplotlib pillow numpy
 ```
 
-
+### 3. Run the Interactive Web App
+The pre-trained weights for the SpectroCNN (```best_spectro_cnn.pth```) are included in the repository, but the file containing the fine-tuned weights for ResNet-50 is too large to be uploaded. Use the file ```resnet.ipynb``` in the architecture folder, and manually obtain the ResNet weights in Google Colab (```best_resnet50.pth```). Ensure both files are in the root directory, then run:
+```bash
+python app.py
+```
+A local link will appear in the terminal. Click it to open the UI, upload an MP3 or WAV file, and watch the ensemble model generate a 30-second Mel Spectrogram and predict the genre!
 
 ---
 
