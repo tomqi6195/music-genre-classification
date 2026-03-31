@@ -4,13 +4,21 @@
 ![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-EE4C2C.svg)
 ![Gradio](https://img.shields.io/badge/Gradio-UI-ff7c00.svg)
 
-This project classifies raw audio files into 10 different music genres. It uses the GTZAN dataset for training, exploring different architectures including the baseline support vector machine (SVM), custom neural networks, transfer learning, and ensembles.
+This project classifies raw audio files into 10 different music genres. It used the GTZAN - Music Genre Classification dataset for training, and explored different architectures including the baseline support vector machine (SVM), custom neural networks, transfer learning, and ensembles.
 
 It also has a fully offline, interactive Gradio web app that performs inference on 30-second audio tracks in MP3 or WAV format.
 
 <img width="2846" height="1460" alt="image" src="https://github.com/user-attachments/assets/c65c0677-b5b7-49cb-bda8-9291e501432d" />
 
 ---
+## Data Augmentation
+During training, the GTZAN - Music Genre Classification was augmented using 3 different techniques:
+1. **Slicing** Each 30 second WAV file was sliced into 10 3 second segments, increasing the size of the dataset tenfold.
+2. **Pitch-shifting** Each sample had a 50% chance of being pitch-shifted up by 2 semitones to generalize the model to pitch differences.
+3. **White Noise Addition** Random white noise was added onto the samples with a 50% chance to make the model robust to background noise and real-world imperfections. 
+
+---
+
 
 ## Model Architectures & Pipeline
 
