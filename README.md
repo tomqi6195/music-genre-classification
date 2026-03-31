@@ -35,8 +35,8 @@ To capture the complex nature of music, this project utilizes a dual-expert ense
 | Model Setup | Precision | Recall | F1-Score | Notable Strengths |
 | :--- | :--- | :--- | :--- | :--- |
 | Baseline SVM | 0.71 | 0.70 | 0.70 | None |
-| SpectroCNN | 0.83 | 0.81 | 0.82 | Blues, Classical, Metal |
-| ResNet-50 | 0.83 | 0.82 | 0.83 | Disco, Hiphop, Jazz, Metal |
+| SpectroCNN | 0.83 | 0.81 | 0.82 | Blues, Classical, Metal, Pop |
+| ResNet-50 | 0.83 | 0.82 | 0.83 | Country, Disco, Hiphop, Jazz |
 | **Soft-Voting Ensemble** | **0.86** | **0.84** | **0.85** | **Highly balanced across classes (except Rock)** |
 
 ---
