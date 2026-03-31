@@ -24,12 +24,12 @@ To capture the complex nature of music, this project utilizes a dual-expert ense
 
 ## Final Results (10% Test Set)
 
-| Model Setup | Test Accuracy (F1-Score) | Notable Strengths |
-| :--- | :--- | :--- |
-| Baseline SVM | 70% | None |
-| SpectroCNN | 82% | Blues, Classical, Metal |
-| ResNet-50 (Transfer Learning) | 83% | Disco, Hiphop, Jazz, Metal |
-| **Soft-Voting Ensemble** | **85%** | **Highly balanced across all classes (except Rock)** |
+| Model Setup | Precision | Recall | F1-Score | Notable Strengths |
+| :--- | :--- | :--- | :--- | :--- |
+| Baseline SVM | 0.71 | 0.70 | 0.70 | None |
+| SpectroCNN | 0.83 | 0.81 | 0.82 | Blues, Classical, Metal |
+| ResNet-50 (Transfer Learning) | 0.83 | 0.82 | 0.83 | Disco, Hiphop, Jazz, Metal |
+| **Soft-Voting Ensemble** | **0.86** | **0.84** | **0.85** | **Highly balanced across all classes (except Rock)** |
 
 ---
 
@@ -48,7 +48,7 @@ pip install torch torchvision torchaudio librosa gradio matplotlib pillow numpy
 ```
 
 ### 3. Run the Interactive Web App
-The pre-trained weights for the SpectroCNN (best_spectro_cnn.pth) are included in the repository, but the file containing the fine-tuned weights for ResNet-50 is too large to be uploaded. Use the file ```resnet.ipynb``` in the architecture folder, and manually obtain the ResNet weights in Google Colab (best_resnet50.pth). Ensure both files are in the root directory, then run:
+The pre-trained weights for the SpectroCNN (```best_spectro_cnn.pth```) are included in the repository, but the file containing the fine-tuned weights for ResNet-50 is too large to be uploaded. Use the file ```resnet.ipynb``` in the architecture folder, and manually obtain the ResNet weights in Google Colab (```best_resnet50.pth```). Ensure both files are in the root directory, then run:
 ```bash
 python app.py
 ```
@@ -56,5 +56,5 @@ A local link will appear in the terminal. Click it to open the UI, upload an MP3
 
 ## Repository Structure
 - The ```architecture``` folder contains all the Colab notebooks used the construct models, in which ```EnsembleExperiments.ipynb``` is the master notebook containing the strict data-splitting pipeline, model class definitions, the training Loop, and the comprehensive evaluation of all ensemble techniques.
-- The ```demo``` folder has ```app.py``` (the Gradio web app script) as well as ```best_spectro_cnn.pth``` (the optimized weights for the rhythm-detecting SpectroCNN).
-- The ```data_processing``` folder includes all the preliminary data processing notebooks, which are then adapted and used in the architecture notebooks.
+- The ```demo``` folder includes files ```app.py``` (the Gradio web app script) as well as ```best_spectro_cnn.pth``` (the optimized weights for the rhythm-detecting SpectroCNN).
+- The ```data_processing``` folder contains all the preliminary data processing code, which are then adapted and used in the architecture notebooks.
