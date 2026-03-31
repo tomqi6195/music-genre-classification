@@ -67,4 +67,3 @@ A local link will appear in the terminal. Click it to open the UI, upload an MP3
 ## Repository Structure
 - The ```architecture``` folder contains all the Colab notebooks used the construct models, in which ```EnsembleExperiments.ipynb``` is the master notebook containing the strict data-splitting pipeline, model class definitions, the training Loop, and the comprehensive evaluation of all ensemble techniques.
 - The ```demo``` folder includes files ```app.py``` (the Gradio web app script) as well as ```best_spectro_cnn.pth``` (the optimized weights for the rhythm-detecting SpectroCNN).
-- The ```data_processing``` folder contains all the preliminary data processing code, which are then adapted and used in the architecture notebooks.
