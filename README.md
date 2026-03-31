@@ -15,7 +15,7 @@ It also has a fully offline, interactive Gradio web app that performs inference 
 ## Data Augmentation
 During training, the audio data was augmented using 3 different techniques:
 1. **Slicing:** Each 30-second WAV file was sliced into ten 3-second segments, increasing the size of the dataset tenfold.
-2. **Pitch-shifting:** Each sample had a 50% chance of being pitch-shifted by 2 semitones to generalize the model to pitch differences.
+2. **Pitch-Shifting:** Each sample had a 50% chance of being pitch-shifted by 2 semitones to generalize the model to pitch differences.
 3. **White Noise Addition:** Random white noise was added onto the samples with a 50% chance to make the model robust to background noise and real-world imperfections. 
 
 ---
