@@ -1,4 +1,4 @@
-# Deep Audio Genre Classifier
+# Music Genre Classifier
 
 ![Python](https://img.shields.io/badge/Python-3.11-blue.svg)
 ![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-EE4C2C.svg)
@@ -11,14 +11,14 @@ It also has a fully offline, interactive Gradio web app that performs inference 
 <img width="2846" height="1460" alt="image" src="https://github.com/user-attachments/assets/c65c0677-b5b7-49cb-bda8-9291e501432d" />
 
 ---
+
 ## Data Augmentation
-During training, the GTZAN - Music Genre Classification was augmented using 3 different techniques:
-1. **Slicing:** Each 30 second WAV file was sliced into 10 3 second segments, increasing the size of the dataset tenfold.
-2. **Pitch-shifting:** Each sample had a 50% chance of being pitch-shifted up by 2 semitones to generalize the model to pitch differences.
+During training, the audio data was augmented using 3 different techniques:
+1. **Slicing:** Each 30-second WAV file was sliced into ten 3-second segments, increasing the size of the dataset tenfold.
+2. **Pitch-shifting:** Each sample had a 50% chance of being pitch-shifted by 2 semitones to generalize the model to pitch differences.
 3. **White Noise Addition:** Random white noise was added onto the samples with a 50% chance to make the model robust to background noise and real-world imperfections. 
 
 ---
-
 
 ## Model Architectures & Pipeline
 
@@ -66,4 +66,5 @@ A local link will appear in the terminal. Click it to open the UI, upload an MP3
 
 ## Repository Structure
 - The ```architecture``` folder contains all the Colab notebooks used the construct models, in which ```EnsembleExperiments.ipynb``` is the master notebook containing the strict data-splitting pipeline, model class definitions, the training Loop, and the comprehensive evaluation of all ensemble techniques.
-- The ```demo``` folder includes files ```app.py``` (the Gradio web app script) as well as ```best_spectro_cnn.pth``` (the optimized weights for the rhythm-detecting SpectroCNN).
+- The ```data``` folder includes data processing code, which is adapted and used in the architecture notebooks.
+- The ```demo``` folder contains files ```app.py``` (the Gradio web app script) as well as ```best_spectro_cnn.pth``` (the optimized weights for the rhythm-detecting SpectroCNN).
